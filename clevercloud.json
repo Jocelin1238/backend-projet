@@ -1,8 +1,12 @@
 {
+  "deploy": {
+    "appFolder": "SystemeReservation",
+    "buildFlavor": "maven"
+  },
   "build": {
-    "command": "cd SystemeReservation && mvn clean package -DskipTests=true"
+    "command": "mvn clean package -DskipTests=true"
   },
   "run": {
-    "goal": "cd SystemeReservation && java -jar target/SystemeReservation-0.0.1-SNAPSHOT.jar"
+    "goal": "java -jar target/SystemeReservation-0.0.1-SNAPSHOT.jar"
   }
 }
