@@ -1,0 +1,1 @@
+{"build":{"command":"mvn clean package -DskipTests=true"},"run":{"goal":"target/SystemeReservation-0.0.1-SNAPSHOT.jar"}} 
