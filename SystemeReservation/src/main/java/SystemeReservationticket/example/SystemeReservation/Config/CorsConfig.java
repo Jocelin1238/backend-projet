@@ -16,11 +16,11 @@ public class CorsConfig {
 
         // Utiliser setAllowedOriginPatterns au lieu de setAllowedOrigins pour plus de souplesse avec ngrok
         configuration.setAllowedOriginPatterns(List.of(
-        "http://localhost:4200",
-        
-        "https://golden-seahorse-0af1d5.netlify.app/" // 👈 Remplacez par l'URL exacte de votre site Netlify
+    "http://localhost:4200",
+    "http://localhost:*",
+    "https://golden-seahorse-0af1d5.netlify.app", // Votre Netlify exact
+    "https://*.netlify.app"                      // Optionnel : tous les sous-domaines Netlify
 ));
-
         // Méthodes HTTP autorisées
         configuration.setAllowedMethods(List.of(
                 "GET",
