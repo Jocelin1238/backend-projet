@@ -74,14 +74,18 @@ public SecurityFilterChain securityFilterChain(
 .authorizeHttpRequests(auth -> auth
 
 
-
+.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
     // ==========================
     // PUBLIC
     // ==========================
     .requestMatchers(
         "/api/auth/**",
         "/swagger-ui/**",
-        "/v3/api-docs/**"
+        "/v3/api-docs/**",
+        "/api/transports",
+        "/api/transports/**",
+        "/api/villes",
+        "/api/villes/**"
     ).permitAll()
 
     // ==========================

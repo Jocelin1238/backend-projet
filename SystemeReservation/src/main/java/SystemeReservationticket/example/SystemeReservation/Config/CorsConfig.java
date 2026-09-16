@@ -14,10 +14,12 @@ public class CorsConfig {
 
         CorsConfiguration configuration = new CorsConfiguration();
 
-        // Angular
-        configuration.setAllowedOrigins(List.of(
-                "http://localhost:4200"
-        ));
+        // Utiliser setAllowedOriginPatterns au lieu de setAllowedOrigins pour plus de souplesse avec ngrok
+        configuration.setAllowedOriginPatterns(List.of(
+        "http://localhost:4200",
+        "https://*.ngrok-free.dev",
+        "https://golden-seahorse-0af1d5.netlify.app/" // 👈 Remplacez par l'URL exacte de votre site Netlify
+));
 
         // Méthodes HTTP autorisées
         configuration.setAllowedMethods(List.of(
@@ -29,13 +31,13 @@ public class CorsConfig {
                 "OPTIONS"
         ));
 
-        // Headers autorisés
+        // Headers autorisés (inclure les en-têtes personnalisés si nécessaire)
         configuration.setAllowedHeaders(List.of("*"));
 
-        // Autoriser Authorization (JWT)
+        // Headers exposés
         configuration.setExposedHeaders(List.of("Authorization"));
 
-        // Cookies (laisser true seulement si nécessaire)
+        // Autoriser les credentials (cookies / tokens)
         configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source =
