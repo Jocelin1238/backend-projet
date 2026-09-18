@@ -18,7 +18,7 @@ public class CorsConfig {
         configuration.setAllowedOriginPatterns(List.of(
     "http://localhost:4200",
     "http://localhost:*",
-    "https://resplendent-halva-f527ad.netlify.app/", // Votre Netlify exact
+    "https://resplendent-halva-f527ad.netlify.app", // Votre Netlify exact
     "https://*.netlify.app"                      // Optionnel : tous les sous-domaines Netlify
 ));
         // Méthodes HTTP autorisées
