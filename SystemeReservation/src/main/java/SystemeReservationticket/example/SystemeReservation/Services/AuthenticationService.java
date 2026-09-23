@@ -64,7 +64,7 @@ public class AuthenticationService {
                 .motDePasse(passwordEncoder.encode(request.getMotDePasse()))
                 .telephone(request.getTelephone())
                 .adresse(request.getAdresse())
-                .actif(false)
+                .actif(true) // Mis à true pour éviter le blocage OTP et permettre la connexion directe
                 .compteExpire(false)
                 .compteVerrouille(false)
                 .credentialExpire(false)
@@ -75,8 +75,8 @@ public class AuthenticationService {
 
         utilisateurRepository.save(utilisateur);
 
-        // Génération OTP
-        otpService.generateOtp(utilisateur.getEmail());
+        // [COMMENTÉ] Génération OTP désactivée pour éviter le timeout SMTP sur Render
+        // otpService.generateOtp(utilisateur.getEmail());
 
         return AuthenticationReponse.builder()
                 .email(utilisateur.getEmail())
